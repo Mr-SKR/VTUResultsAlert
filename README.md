@@ -14,9 +14,9 @@ A java selenium program that checks for the results from [VTU RESULTS PAGE](http
     
 ## EDIT CODE
 1. Expand 'VTUResultsAlert-master' folder in Eclipse 'Package Explorer' >
-   Expand 'src' > Expand '(default package)' > Double click on 'alert.java'
+   Expand 'src' > Expand '(default package)' > Double click on 'alert.java',
 2. Read the comments in the code and make changes accordingly to suit your scheme (ex: CBCS, non-CBCS)
-   Replace my USN with yours
+   replace my USN with yours
 3. Save & Run the program
 
 ## RESULTS
