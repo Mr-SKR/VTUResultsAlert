@@ -1,5 +1,5 @@
 # VTUResultsAlert
-A java selenium program that checks for the results from (results.vtu.ac.in) and siren if published
+A java selenium program that checks for the results from [VTU RESULTS PAGE](http://results.vtu.ac.in) and siren if published
 
 
 ## REQUIREMENTS
