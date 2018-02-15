@@ -72,7 +72,7 @@ public class Alert {
 				//Check for results every 30 seconds
 				//30000 = 30s
 				//60000 = 1m
-				//Do not get this number too low which might result in your IP being blocked by the page
+				//Do not set this number too low which might result in your IP being blocked by the page
 				Thread.sleep(30000);
 			} catch(Exception e)
 			{
