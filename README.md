@@ -3,8 +3,8 @@ A java selenium program that checks for the results from [VTU RESULTS PAGE](http
 
 
 ## REQUIREMENTS
-* Google Chrome - latest version
-* Eclipse
+* Google Chrome 59 and above
+* Eclipse IDE for Java Developers/ Tava EE Developers
 
 
 ## IMPORTING THE PROJECT
