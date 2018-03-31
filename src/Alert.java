@@ -13,6 +13,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
@@ -26,7 +27,9 @@ public class Alert {
 		
 		while(true)
 		{
-			WebDriver driver = new ChromeDriver();
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.addArguments("--headless");
+			WebDriver driver = new ChromeDriver(chromeOptions);
 			driver.get("http://results.vtu.ac.in/vitaviresultnoncbcs/index.php");
 			//FOR CBCS Scheme results, Replace the above line with below line
 			//driver.get("http://results.vtu.ac.in/vitaviresultcbcs/index.php");
