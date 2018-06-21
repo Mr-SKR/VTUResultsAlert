@@ -1,28 +1,27 @@
 # VTUResultsAlert
 A java selenium program that checks for the results from [VTU RESULTS PAGE](http://results.vtu.ac.in) and siren if published
 
+![Image missing](vra.jpg?raw=true "Title")
 
 ## REQUIREMENTS
-* Google Chrome 59 and above
-* Eclipse IDE for Java Developers/ Tava EE Developers
+* [Google Chrome 59 and above](https://www.google.com/chrome/) [Runs in background]
+* [Java JRE/JDK 1.7 or higher](http://www.oracle.com/technetwork/java/javase/downloads/jre10-downloads-4417026.html)
+* Windows Operating System
+* Active internet connection
 
+## RESULTS
+* An audio file with alarm sound is played as soon as the results are published.
+* A screenshot is captured the very moment results are published and is stored in the Desktop with the name 'MyVtuResult.png'
 
-## IMPORTING THE PROJECT
+## HOW TO DOWNLOAD & RUN
+* [Click here for downloads](https://github.com/Mr-SKR/VTUResultsAlert/releases/)
+* Download either VtuResultsAlert.jar(recommended) or VTU.Results.Alert.exe and double click the file to run.
+
+## IMPORTING THE PROJECT (FOR DEVELOPERS/CONTRIBUTORS ONLY)
 1. Clone or download the project (unzip the VTUResultsAlert-master.zip if downloaded)
 2. Launch Eclipse > 'File' > 'Open projects from File System' > click on 'Directory' >
    select the extracted folder from step 1 (VTUResultsAlert-master) > click 'OK' > click 'Finish'
     
-## EDIT CODE
-1. Expand 'VTUResultsAlert-master' folder in Eclipse 'Package Explorer' >
-   Expand 'src' > Expand '(default package)' > Double click on 'alert.java',
-2. Read the comments in the code and make changes accordingly to suit your scheme (ex: CBCS, non-CBCS),
-   replace my USN with yours
-3. Save & Run the program
-
-## RESULTS
-* A screenshot is captured the very moment results are published
-  and is stored in the VTUResultsAlert-master\Screenshots folder with the name 'Myresult.png'
-* An audio file 'alarm.mp3' is played as soon as the results are published
-  If you wish to play a different mp3 file, rename the audio file to 'alarm.mp3' and replace the file in VTUResultsAlert-master
-  
-_Incase of any doubts, errors or customization requests, mail me @ **sureshreddy@engineer.com**_ [Typical Response time: 24hrs]
+Special Thanks to [@Akhil](https://github.com/akhil-kris) for the UI.
+ 
+_Incase of any doubts, errors, bugs or customization requests, mail me @ **sureshreddy@engineer.com**_ [Typical Response time: 24hrs]
