@@ -10,7 +10,7 @@ A java selenium program that checks for the results from [VTU RESULTS PAGE](http
 * Active internet connection
 
 ## RESULTS
-* An audio file with alarm sound is played as soon as the results are published.
+* An alarm sound is played as soon as the results are published.
 * A screenshot is captured the very moment results are published and is stored in the Desktop with the name 'MyVtuResult.png'
 
 ## HOW TO DOWNLOAD & RUN
