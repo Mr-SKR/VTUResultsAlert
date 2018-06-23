@@ -23,13 +23,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Alert {
 
-	public Alert(String usn, Boolean cbcs) {
+	public Alert(String usn, Boolean cbcs, int semester) {
 		
 		File temp = null;
 		
 		try {
             String filename = "/main/resources/chromedriver.exe";
-            System.out.println(Alpha.class.getResource(filename));
             InputStream fi = Alpha.class.getResourceAsStream(filename);
             temp = File.createTempFile("temp_exe", "");
             OutputStream fo = new FileOutputStream(temp);
@@ -68,40 +67,52 @@ public class Alert {
 		
 			element = driver.findElement(By.id("submit"));
 			element.click();
-		
+			Boolean validSemester = true;	
 			try 
 			{ 
 				driver.switchTo().alert().dismiss();
 			} 
 			catch (NoAlertPresentException Ex) 
 			{ 
-				driver.manage().window().fullscreen();
-				File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 				try {
-					String demo = System.getProperty("user.home");
-					FileUtils.copyFile(src, new File(demo+"\\Desktop\\MyVtuResult.png"));
+					String sem = driver.findElement(By.xpath(".//*[contains(text(), 'Semester')]")).getText();
+					sem = sem.substring(11);
+					if(Integer.parseInt(sem) != semester)
+					{
+						validSemester = false;
+					}
+				} catch (Exception e) {
+					
 				}
-			 
-				catch (IOException e)
+				if(validSemester)
 				{
-					System.out.println(e.getMessage());
-			 
-				}
-			
+					driver.manage().window().fullscreen();
+					File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+					try {
+						String demo = System.getProperty("user.home");
+						FileUtils.copyFile(src, new File(demo+"\\Desktop\\MyVtuResult.png"));
+					}
+				 
+					catch (IOException e)
+					{
+						System.out.println(e.getMessage());
+				 
+					}
 				
-				try{
-				    AudioInputStream audioInputStream =
-				        AudioSystem.getAudioInputStream(
-				            this.getClass().getResource("/main/resources/alarm.wav"));
-				    Clip clip = AudioSystem.getClip();
-				    clip.open(audioInputStream);
-				    clip.start();
+					
+					try{
+					    AudioInputStream audioInputStream =
+					        AudioSystem.getAudioInputStream(
+					            this.getClass().getResource("/main/resources/alarm.wav"));
+					    Clip clip = AudioSystem.getClip();
+					    clip.open(audioInputStream);
+					    clip.start();
+					}
+					catch(Exception ex)
+					{
+						System.out.println(ex);
+					}
 				}
-				catch(Exception ex)
-				{
-					System.out.println(ex);
-				}
-				
 				
 			}
 			driver.quit();

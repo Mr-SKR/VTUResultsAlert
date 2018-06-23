@@ -16,18 +16,21 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.ActionEvent;
 
 public class Alpha {
 	
 	public String Input="";
+	public String InputSem="";
 	private JFrame frame;
 	private JTextField textField;
+	private JTextField textFieldSem;
 	public Boolean cbcsFlag = false;
 	public Boolean nonCbcsFlag = false;
 	public Boolean validUsn = true;
+	public Boolean validSem = true;
+	public Boolean validScheme = true;
+	public int semester = 0;
 
 	/*
 	 * 
@@ -82,19 +85,39 @@ public class Alpha {
 		atbLabel.setBounds(195, 115, 250, 175);
 		frame.getContentPane().add(atbLabel);
 		
-		JLabel usnLabel = new JLabel("Select scheme & Enter your USN:");
-		usnLabel.setForeground(Color.WHITE);
+		JLabel usnLabel = new JLabel("UNIVERSITY SERIAL NUMBER");
+		usnLabel.setForeground(Color.BLACK);
 		usnLabel.setFont(new Font("Serif", Font.PLAIN, 12));
-		usnLabel.setBounds(80, 150, 250, 175);
+		usnLabel.setBounds(160, 155, 200, 175);
 		frame.getContentPane().add(usnLabel);
+		
+		JLabel semLabel = new JLabel("SEM");
+		semLabel.setForeground(Color.BLACK);
+		semLabel.setFont(new Font("Serif", Font.PLAIN, 12));
+		semLabel.setBounds(52, 155, 30, 175);
+		frame.getContentPane().add(semLabel);
+		
+		JLabel schemeLabel = new JLabel("SCHEME");
+		schemeLabel.setForeground(Color.BLACK);
+		schemeLabel.setFont(new Font("Serif", Font.PLAIN, 12));
+		schemeLabel.setBounds(355, 180, 85, 25);
+		frame.getContentPane().add(schemeLabel);
 		
 		textField = new JTextField(); // User Input Field
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
 		textField.setForeground(new Color(255, 255, 255));
 		textField.setBackground(new Color(153, 102, 255));
-		textField.setBounds(76, 250, 352, 33);
+		textField.setBounds(76, 250, 353, 33);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+		
+		textFieldSem = new JTextField(); // User Input Field
+		textFieldSem.setHorizontalAlignment(SwingConstants.CENTER);
+		textFieldSem.setForeground(new Color(255, 255, 255));
+		textFieldSem.setBackground(new Color(153, 102, 255));
+		textFieldSem.setBounds(50, 250, 28, 33);
+		frame.getContentPane().add(textFieldSem);
+		textFieldSem.setColumns(1);
 		
 		
 		
@@ -102,12 +125,12 @@ public class Alpha {
 		checkbox1.setForeground(Color.WHITE);
 		checkbox1.setBackground(Color.decode("0X2d2d2d"));
 		checkbox1.setOpaque(false);
-		checkbox1.setBounds(260, 225, 85, 25);
+		checkbox1.setBounds(350, 200, 85, 25);
 		JCheckBox checkbox2 = new JCheckBox("Non-CBCS");
 		checkbox2.setForeground(Color.WHITE);
 		checkbox2.setBackground(Color.decode("0X2d2d2d"));
 		checkbox2.setOpaque(false);
-		checkbox2.setBounds(340, 225, 85, 25);
+		checkbox2.setBounds(350, 225, 85, 25);
 		frame.add(checkbox1);
 		frame.add(checkbox2);
 		
@@ -119,105 +142,45 @@ public class Alpha {
 		button2.setBounds(275,290,85,25);
 		frame.add(button2);
 		
-		
-		
 		JLabel Background = new JLabel(""); // Background Label
 		Background.setBounds(0, 0, 489, 340);
 		Background.setIcon(new ImageIcon(back));
 		frame.getContentPane().add(Background);
 		
-		
-
-		checkbox1.addItemListener(new ItemListener() {
-				            public void itemStateChanged(ItemEvent e) {
-				                if (e.getStateChange() == 1) {
-				                    //System.out.println("CBCS selected");
-				                    cbcsFlag = true;
-				                } else {
-				                    //System.out.println("CBCS deselected");
-				                    cbcsFlag = false;
-				                }
-				            }
-				        });
-		
-		checkbox2.addItemListener(new ItemListener() {
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == 1) {
-                    //System.out.println("Non-CBCS selected");
-                    nonCbcsFlag = true;
-                } else {
-                    //System.out.println("Non-CBCS deselected");
-                    nonCbcsFlag = false;
-                }
-            }
-        });
-		
-		
-		
-		
-		textField.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent Arg0)
-				{	
-					Input = textField.getText();
-					
-					if(Input.length() != 10)
-					{
-						//System.out.println("Invalid USN");
-						validUsn = false;  
-					}
-					
-					if(cbcsFlag == nonCbcsFlag || !validUsn)
-					{
-						//System.out.println("ERROR");
-						Image img = new ImageIcon(this.getClass().getResource("error.png")).getImage();
-						lblNewLabel.setIcon(new ImageIcon(img));
-						frame.getContentPane().add(lblNewLabel);
-						frame.getContentPane().add(Background);
-						atbLabel.setText("INVALID INPUT");
-					}
-					else
-					{
-						Image img = new ImageIcon(this.getClass().getResource("running.png")).getImage();
-						lblNewLabel.setIcon(new ImageIcon(img));
-						frame.getContentPane().add(lblNewLabel);
-						frame.getContentPane().add(Background);
-						atbLabel.setText("    RUNNING...");
-						
-						
-
-			            Thread hilo = new Thread(new Runnable() {
-
-			            	@Override
-			                public void run() {
-
-			                    
-			            		new Alert(Input, cbcsFlag);
-								
-
-			                }
-			            });         
-			            hilo.start();
-			
-					}
-					   
-			}
-		});
-		
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent Arg0)
 			{	
-				
+				cbcsFlag = checkbox1.isSelected();
+				nonCbcsFlag = checkbox2.isSelected();
+				validSem = true;
 				Input = textField.getText();
+				InputSem = textFieldSem.getText();
 				
 				if(Input.length() != 10)
 				{
 					//System.out.println("Invalid USN");
 					validUsn = false;  
 				}
+				try {
+				semester = Integer.parseInt(InputSem);
+				} catch (Exception e) {
+					validSem = false;
+				}
 				
-				if(cbcsFlag == nonCbcsFlag || !validUsn)
+				if(semester > 8 || semester < 1)
 				{
-					//System.out.println("ERROR");
+					//System.out.println("Invalid Semester");
+					validSem = false;  
+				}
+				
+				if(cbcsFlag == true && nonCbcsFlag == true)
+					validScheme = false;
+				if(cbcsFlag == false && nonCbcsFlag == false)
+					validScheme = false;
+				
+				if(cbcsFlag == nonCbcsFlag || !validUsn || !validSem)
+				{
+					System.out.println("ERROR");
 					Image img = new ImageIcon(this.getClass().getResource("error.png")).getImage();
 					lblNewLabel.setIcon(new ImageIcon(img));
 					frame.getContentPane().add(lblNewLabel);
@@ -240,7 +203,7 @@ public class Alpha {
 		                public void run() {
 
 		                    
-						new Alert(Input, cbcsFlag);
+		            		new Alert(Input, cbcsFlag, semester);
 							
 
 		                }
