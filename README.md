@@ -14,8 +14,8 @@ A java selenium program that checks for the results from [VTU RESULTS PAGE](http
 * A screenshot is captured the very moment results are published and is stored in the Desktop with the name 'MyVtuResult.png'
 
 ## HOW TO DOWNLOAD & RUN
-* [Download from Google Drive](https://goo.gl/KPZKDf) (Fast)
-* [Download from GitHub repo](https://github.com/Mr-SKR/VTUResultsAlert/releases/) (Slow)
+* [Download from Google Drive](https://goo.gl/KPZKDf) (Faster download)
+* [Download from GitHub repo](https://github.com/Mr-SKR/VTUResultsAlert/releases/) (Slower download)
 * Download either VtuResultsAlert.jar(recommended) or VTU.Results.Alert.exe and double click the file to run.
 
 ## IMPORTING THE PROJECT (FOR DEVELOPERS/CONTRIBUTORS ONLY)
