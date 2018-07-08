@@ -56,9 +56,9 @@ public class Alert {
 			chromeOptions.addArguments("--headless");
 			WebDriver driver = new ChromeDriver(chromeOptions);
 			if(cbcs == true)
-				driver.get("http://results.vtu.ac.in/vitaviresultcbcs/index.php");
+				driver.get("http://results.vtu.ac.in/vitaviresultcbcs18/index.php");
 			else
-				driver.get("http://results.vtu.ac.in/vitaviresultnoncbcs/index.php");
+				driver.get("http://results.vtu.ac.in/vitaviresultnoncbcs18/index.php");
 			
 		
 			WebElement element = driver.findElement(By.xpath(".//*[@id='raj']/div[1]/div/input"));
