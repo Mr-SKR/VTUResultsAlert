@@ -23,6 +23,5 @@ A java selenium program that checks for the results from [VTU RESULTS PAGE](http
 2. Launch Eclipse > 'File' > 'Open projects from File System' > click on 'Directory' >
    select the extracted folder from step 1 (VTUResultsAlert-master) > click 'OK' > click 'Finish'
     
-Special Thanks to [@Akhil](https://github.com/akhil-kris) for the UI.
  
 _Incase of any doubts, errors, bugs or customization requests, mail me @ **sureshreddy@engineer.com**_ [Typical Response time: 24hrs]
