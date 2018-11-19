@@ -24,4 +24,4 @@ A java selenium program that checks for the results from [VTU RESULTS PAGE](http
    select the extracted folder from step 1 (VTUResultsAlert-master) > click 'OK' > click 'Finish'
     
  
-_Incase of any doubts, errors, bugs or customization requests, mail me @ **sureshreddy@engineer.com**_ [Typical Response time: 24hrs]
+_Incase of any doubts, errors, bugs or customization requests, mail me @ **sureshreddy@engineer.com**_
